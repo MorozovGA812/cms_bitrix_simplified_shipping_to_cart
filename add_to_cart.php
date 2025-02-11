@@ -1,9 +1,7 @@
 <?
 require $_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php";
 
-use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
-use Bitrix\Sale;
 
 Loader::includeModule('sale');
 Loader::includeModule('catalog');
@@ -16,6 +14,7 @@ if($_POST["ID"] && $_POST["PRICE"]) {
     $currency = Bitrix\Currency\CurrencyManager::getBaseCurrency();
     $item = $basket->createItem('catalog', $productId);
     $item->setFields(array(
+        'NAME' => $_POST["NAME"],
         'QUANTITY' => 1,
         'CURRENCY' => $currency,
         'LID' => $siteId,
