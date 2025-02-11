@@ -2,7 +2,7 @@ BX.bindDelegate(document.body, "click", {className: 'to-cart__button'}, function
     
     let id = parseInt(this.dataset.id);
     let price = parseInt(this.dataset.price);
-    let obj = {"ID": id, "PRICE": price};
+    let obj = {"ID": id, "NAME": name, "PRICE": price};
     
     BX.ajax({
         url: "/ajax/add_to_cart.php", // в зависимости от конкретного проекта можно прописать другой адрес php-скрипта, который будет обрабатывать полученные данные.
